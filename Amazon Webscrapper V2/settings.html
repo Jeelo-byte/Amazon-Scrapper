@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Scraper Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Notification styles */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999999;
+            max-width: 400px;
+            width: 90%;
+            pointer-events: none;
+        }
+        
+        .notification {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            margin-bottom: 10px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification.success {
+            border-left-color: #10b981;
+        }
+        
+        .notification.error {
+            border-left-color: #ef4444;
+        }
+        
+        .notification.warning {
+            border-left-color: #f59e0b;
+        }
+        
+        .notification-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: #6b7280;
+        }
+        
+        .notification-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 2px;
+        }
+        
+        .notification-message {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .notification-close:hover {
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="card max-w-xl mx-auto mt-10">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Scraper Settings</h1>
+        <p class="text-gray-600 mb-8">Choose which fields to include when copying data.</p>
+
+        <div id="settings-container" class="space-y-4">
+            <!-- Checkboxes will be dynamically inserted here -->
+        </div>
+
+        <div class="mt-8 border-t pt-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Keyboard Shortcuts</h2>
+            <p class="text-gray-600 mb-6">Customize keyboard shortcuts for quick actions. Click on a shortcut to change it.</p>
+            
+            <div id="shortcuts-container" class="space-y-4">
+                <!-- Shortcuts will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <p id="save-confirmation" class="status-success h-6"></p>
+        </div>
+    </div>
+    <script src="notification.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>
